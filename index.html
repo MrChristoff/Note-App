@@ -5,11 +5,11 @@
     <title>Note App!</title>
   </head>
   <body>
-    <a href="javascript:void(0)" onclick="noteController.newNote("some text");">New note?</a>
     <button onclick="noteController.newNote('some text')">Click me</button>
     <form>
-      <input type="text" name="noteText" id="noteText!">
-    <input type="submit" value="Submit" onclick="addUser(document.getElementById('firstname').value,'right')">
+      <input type="text" name="noteText" id="noteText">
+    <!-- <input type="submit" value="Submit" onclick="addUser(document.getElementById('firstname').value,'right')"> -->
+    <input type="submit" value="Submit" onclick="noteController.newNote(document.getElementById('noteText').value)">
     </form>
 
     <script src="note-model.js"></script>

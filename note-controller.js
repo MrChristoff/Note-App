@@ -42,9 +42,31 @@
   };
 
   NoteController.prototype.newNote = function (text) {
+    console.log("hello new note");
       var id = this.noteCounter;
       this.idIncrementer();
       this.noteList.storeNote(new Note(text, id));
+  };
+  function makeTigerLinkClickSayTiger() {
+        document
+          .getElementById("tiger-link")
+          .addEventListener("click", function(clickEvent) {
+            clickEvent.preventDefault();
+            sayTiger();
+          });
+      };
+
+
+  NoteController.prototype.writeNoteFromHtmlForm = function () {
+    console.log("hello 1");
+    document
+    .getElementById("noteText")
+    .addEventListener("click", function(clickEvent){
+      console.log("hello 2");
+      clickEvent.preventDefault();
+      this.newNote(document.getElementById("noteText").value);
+      console.log("hello 3");
+    })
   };
 
   exports.NoteController = NoteController;
