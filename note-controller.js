@@ -25,7 +25,7 @@
   NoteController.prototype.testHtmlList = function () {
     this.newNote("pray, eat monkey, pray, jump, run");
     this.newNote("pray, eat, eat");
-    var joiner = this.noteListView.htmlJoiner();
+    var joiner = this.noteListView.htmlListCreator();
     return joiner;
   };
 
