@@ -55,10 +55,8 @@ function singleNoteViewReturnsHTML() {
 };
 
 function assignUniqueIdToNote() {
-  var noteController = new NoteController
-  var note1 = noteController.newNote("text")
-  var note2 = noteController.newNote("text")
-  if (noteController.noteList.noteArray[1].id == 1) {
+  var note1 = new Note("text")
+  if (note1.id == 6) {
     console.log("assignUniqueIdToNote");
   } else {
     console.log("false")

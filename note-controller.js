@@ -5,7 +5,6 @@
     this.noteListView = new NoteListView(this.noteList);
     this.noteObj = new Note("Some stuff what i rote");
     this.singleNoteView = new SingleNoteView(this.noteObj);
-    this.noteCounter = 0;
   }
 
   NoteController.prototype.divCreator = function (divId) {
@@ -13,7 +12,7 @@
     div.setAttribute("id", divId);
     document.body.insertBefore(div, document.body.firstChild);
   };
-
+  //move div creation out of model, only have 'messages' in controller
   NoteController.prototype.divPopulator = function (html, divId) {
     var element = document.getElementById(divId);
     element.innerHTML = html;
@@ -37,36 +36,9 @@
     return joiner;
   };
 
-  NoteController.prototype.idIncrementer = function () {
-    this.noteCounter++;
-  };
-
   NoteController.prototype.newNote = function (text) {
-    console.log("hello new note");
       var id = this.noteCounter;
-      this.idIncrementer();
-      this.noteList.storeNote(new Note(text, id));
-  };
-  function makeTigerLinkClickSayTiger() {
-        document
-          .getElementById("tiger-link")
-          .addEventListener("click", function(clickEvent) {
-            clickEvent.preventDefault();
-            sayTiger();
-          });
-      };
-
-
-  NoteController.prototype.writeNoteFromHtmlForm = function () {
-    console.log("hello 1");
-    document
-    .getElementById("noteText")
-    .addEventListener("click", function(clickEvent){
-      console.log("hello 2");
-      clickEvent.preventDefault();
-      this.newNote(document.getElementById("noteText").value);
-      console.log("hello 3");
-    })
+      this.noteList.storeNote(new Note(text));
   };
 
   exports.NoteController = NoteController;
