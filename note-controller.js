@@ -8,26 +8,19 @@
   }
 
   NoteController.prototype.divCreator = function (divId) {
-    var div = document.createElement("div");
-    div.setAttribute("id", divId);
-    document.body.insertBefore(div, document.body.firstChild);
+    var newDiv = document.createElement("newDiv");
+    newDiv.setAttribute("id", divId);
+    document.body.insertBefore(newDiv, document.body.firstChild);
   };
-  //move div creation out of model, only have 'messages' in controller
   NoteController.prototype.divPopulator = function (html, divId) {
     var element = document.getElementById(divId);
     element.innerHTML = html;
   };
 
-  NoteController.prototype.divInit = function () {
-    noteController.divCreator("app");
-    noteController.divPopulator(noteController.testHtmlList(), "app");
+  NoteController.prototype.divInitializer = function (html, divId) {
+    noteController.divCreator(divId);
+    noteController.divPopulator(html, divId);
   };
-
-  NoteController.prototype.singleNoteDivInit = function () {
-    noteController.divCreator("single");
-    noteController.divPopulator(this.singleNoteView.htmlNote(), "single");
-  };
-
 
   NoteController.prototype.testHtmlList = function () {
     this.newNote("pray, eat monkey, pray, jump, run");
