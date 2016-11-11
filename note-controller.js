@@ -45,6 +45,8 @@
 
   NoteController.prototype.testHtmlList = function () {
     this.newNote("Blah blah, blah blah blah blah, blah blah");
+    this.newNote("Blah blah, blah blah blah blah, blah blah");
+    this.newNote("Blah blah, blah blah blah blah, blah blah");
     this.newNote("Short, note");
     var joiner = this.noteListView.htmlListCreator();
     return joiner;
