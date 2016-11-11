@@ -5,19 +5,19 @@
   }
 
   NoteListView.prototype.htmlListCreator = function () {
-    return ("<ul>" + this.noteListArrayMapper() + "</ul>");
+    return ("<ul>" + this.noteListArrayObjectRetriever() + "</ul>");
   };
 
-  NoteListView.prototype.noteListArrayMapper = function () {
-    var stringArr = this.noteList.stringArray();
-    var resultArray = stringArr.map(function(string) {
-      return this.htmlWrapper(string);
-    }, this) //sets the contect for 'this' inside the map function, so outer functions can be called
+  NoteListView.prototype.noteListArrayObjectRetriever = function () {
+    var noteListObjectArray = this.noteList.noteArray;
+    var resultArray = noteListObjectArray.map(function(noteObject){
+      return this.htmlNoteObjectWrapper(noteObject);
+    }, this);  //sets the contect for 'this' inside the map function, so outer functions can be called
     return resultArray.join("");
   };
 
-  NoteListView.prototype.htmlWrapper = function (string) {
-    return (("<li><div>") + this.twentyCharacters(string) + ("</li></div>"));
+  NoteListView.prototype.htmlNoteObjectWrapper = function (noteObject) {
+    return (("<li><a") + ` href=${noteObject.id}>` + this.twentyCharacters(noteObject.text) + ("</li></a>"));
   };
 
   NoteListView.prototype.twentyCharacters = function (string) {

@@ -3,7 +3,7 @@
   function NoteController(){
     this.noteList = new NoteList();
     this.noteListView = new NoteListView(this.noteList);
-    this.noteObj = new Note("Some stuff what i rote");
+    this.noteObj = new Note("Stuff what I did rote");
     this.singleNoteView = new SingleNoteView(this.noteObj);
   }
 
@@ -22,16 +22,32 @@
     noteController.divPopulator(html, divId);
   };
 
-  NoteController.prototype.testHtmlList = function () {
-    this.newNote("pray, eat monkey, pray, jump, run");
-    this.newNote("pray, eat, eat");
-    var joiner = this.noteListView.htmlListCreator();
-    return joiner;
+  NoteController.prototype.newNote = function (text) {
+      this.noteList.storeNote(new Note(text));
   };
 
-  NoteController.prototype.newNote = function (text) {
-      var id = this.noteCounter;
-      this.noteList.storeNote(new Note(text));
+  NoteController.prototype.submitNewNoteRef = function () {
+    var doc = document.
+    console.log(doc);
+    document.onclick.preventDefault();
+    // document.clickEvent.preventDefault();
+    console.log((document.getElementById('New note').value));
+  };
+
+  NoteController.prototype.submitNewNote = function () {
+    document
+    .getElementById("New note")
+    .addEventListener("click", function(clickEvent){
+      clickEvent.preventDefault();
+    })
+    this.newNote(document.getElementById('New note').value)
+  };
+
+  NoteController.prototype.testHtmlList = function () {
+    this.newNote("Blah blah, blah blah blah blah, blah blah");
+    this.newNote("Short, note");
+    var joiner = this.noteListView.htmlListCreator();
+    return joiner;
   };
 
   exports.NoteController = NoteController;
