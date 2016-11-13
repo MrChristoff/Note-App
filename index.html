@@ -5,10 +5,8 @@
     <title>Note App!</title>
   </head>
   <body>
-    <form>
-      <input type="text" id="New note">
-    <input type="submit" value="New note" onclick="noteController.submitNewNote">
-    </form>
+    <input name="textbox1" id="textbox1" type="text" />
+    <input name="buttonExecute" onclick="noteController.submitNewNote(document.getElementById('textbox1').value)" type="button" value="New note" />
 
     <script src="note-model.js"></script>
     <script src="note-list-model.js"></script>
